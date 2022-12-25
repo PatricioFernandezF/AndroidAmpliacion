@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.myapplication.Adaptadores.AdapterPeliculas;
 import com.example.myapplication.R;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DetalleFragment extends Fragment {
 
     private FragmentDetalleBinding binding;
+    private String titulo;
 
     @Override
     public View onCreateView(
@@ -35,6 +37,9 @@ public class DetalleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        titulo=getArguments().getString("titulo");
+        TextView tituloT=view.findViewById(R.id.titulo);
+        tituloT.setText(titulo);
 
         binding.volver.setOnClickListener(new View.OnClickListener() {
             @Override
